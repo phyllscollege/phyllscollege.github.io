@@ -1,5 +1,6 @@
 let search = document.querySelector('.search-box');
 let menu = document.querySelector('.navbar');
+let menuLinks = document.querySelectorAll('.navbar a');
 
 document.querySelector('#search-icon').onclick = () =>{
     search.classList.toggle('active');
@@ -27,4 +28,13 @@ let header = document.querySelector('header');
 
 window.addEventListener('scroll', () => {
     header.classList.toggle('shadow', window.scrollY > 0);
+});
+
+/**
+ * Remove mobile menu when link is clicked
+ */
+menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        menu.classList.remove('active');
+    });
 });
