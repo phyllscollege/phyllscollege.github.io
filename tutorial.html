@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding PX, REM and %</title>
+    <style>
+        html,
+        body{
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100vh;
+            background: grey; /* global, affects desktop, tablet ,mobile */
+        }
+        .window-dimensions{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        /*
+        @media (max-width: 768px){
+            body{
+                background: green;
+            }
+        }
+        @media (max-width: 767px){
+            body{
+                background: red;
+            }
+        }
+        @media (max-width: 900px) and (orientation: landscape) {
+            body{
+                background: yellow;
+            }
+        }*/
+        /* mobile device (iPhone, Aitel, Samsung, Alcatel, Motorola) - max-width: 0 - 767px, max-width: landscape = 900px */
+        /* Tablet (iPad) - max-width: 768px, max-width: 1024px */
+        /* Laptop/Desktop - min-width: 1025px */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 10px;
+            width: 100%;
+            margin: 0 auto;
+            max-width: 1300px;
+            place-items: center;
+        }
+        .grid span {
+            width: 100%;
+            height: 100px;
+            background: red;
+        }
+        /* start with tablet */
+        @media (min-width: 768px){
+            .grid{
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        /* target brethren Hope's laptop and desktops*/ 
+        @media (min-width: 1024px){
+            .grid{
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="window-dimensions"></section>
+    <section class="elem"></section>
+    <div class="grid">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+</body>
+    <script>
+        window.addEventListener('resize', () => {
+            let windowDimensions = document.querySelector('.window-dimensions');
+            let elem = document.querySelector('.elem');
+            windowDimensions.innerHTML = `<div>Current Screen Width: (${window.innerWidth}px)</div> <div>Current Screen Height: (${window.innerHeight}px)</div> <div>Total number of screen pixels is: ${window.innerWidth * window.innerHeight}</div>`;
+
+        });
+    </script>
+</html>
