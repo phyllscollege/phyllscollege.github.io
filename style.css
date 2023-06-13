@@ -10,7 +10,6 @@
     text-decoration: none;
     box-sizing: border-box;
 }
-
 /*---------variables------*/
 :root{
     --main-color: red;
@@ -67,8 +66,14 @@ header.shadow #search-icon{
     font-size: 24px;
     cursor: pointer;
     color: var(--text-color);
+    width: 25px;
+    height: 25px;
+    /* background: black; */
+    background-image: url('./img/hamburger-menu.jpeg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     display: none;
-
 }
 .logo{
     font-size: 1.6rem;
